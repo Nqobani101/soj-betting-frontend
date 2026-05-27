@@ -17,7 +17,7 @@ function App() {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch('https://soj-betting-engine.onrender.com/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -36,7 +36,7 @@ function App() {
 
   // --- THE FEED ENGINE ---
   const fetchCodes = () => {
-    fetch('http://localhost:8000/codes')
+    fetch('https://soj-betting-engine.onrender.com/codes')
       .then(res => res.json())
       .then(data => setCodes(data))
   }
@@ -59,7 +59,7 @@ function App() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8000/codes?tipster_id=${currentUser.id}`, {
+      const response = await fetch(`https://soj-betting-engine.onrender.com/codes?tipster_id=${currentUser.id}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newCode)
